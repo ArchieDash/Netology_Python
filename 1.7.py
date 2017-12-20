@@ -73,7 +73,7 @@ def report(specimen):
         if specimen.horns is True:
             print("And it has horns!")
     except:
-        print("")
+        return None
 
 
 def main():
