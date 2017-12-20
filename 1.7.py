@@ -88,11 +88,11 @@ def main():
             report(Pig())
         elif console == "goat":
             report(Goat())
-        elif console == "chicken".lower():
+        elif console == "chicken":
             report(Chicken())
-        elif console == "goose".lower():
+        elif console == "goose":
             report(Goose())
-        elif console == "duck".lower():
+        elif console == "duck":
             report(Duck())
         elif console == "q":
             break
