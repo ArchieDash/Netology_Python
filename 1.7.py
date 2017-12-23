@@ -5,59 +5,57 @@ class Animals:
 class Cattle(Animals):
     reproduction = "live birth"
     legs = 4
-    food = ("hay", "greenery", "roots", "cereals")
 
 
 class Birds(Animals):
     reproduction = "eggs"
     wings = True
-    food = ("greenery", "roots", "cereals")
 
 
 class Cow(Cattle):
     sound = "moo-moo"
     lifespan = 20
     horns = True
-    food = Cattle.food[0], Cattle.food[1]
+    food = ("hay", "greenery")
 
 
 class Goat(Cattle):
     sound = "baa"
     lifespan = 16.5
     horns = True
-    food = Cattle.food[0], Cattle.food[1]
+    food = ("hay", "greenery")
 
 
 class Sheep(Cattle):
     sound = "baa-baa"
     lifespan = 11
     horns = False
-    food = Cattle.food[0], Cattle.food[1]
+    food = ("hay", "greenery")
 
 
 class Pig(Cattle):
     sound = "grunt-grunt"
     lifespan = 20
     horns = False
-    food = Cattle.food[2], Cattle.food[3]
+    food = ("roots", "cereals")
 
 
 class Duck(Birds):
     sound = "quack-quack"
     lifespan = 7.5
-    food = Birds.food[0], Birds.food[2]
+    food = ("greenery", "cereals")
 
 
 class Chicken(Birds):
     sound = "cheep-cheep"
     lifespan = 4
-    food = Birds.food[2]
+    food = "cereals"
 
 
 class Goose(Birds):
     sound = "honk-honk"
     lifespan = 20
-    food = Birds.food[0], Birds.food[1]
+    food = ("greenery", "roots")
 
 
 def report(console, specimen):
