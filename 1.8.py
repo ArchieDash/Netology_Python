@@ -26,6 +26,6 @@ def main():
             report("newsit.txt", None)
         elif console.lower() == "q":
             break
-os.system("pause")
+    os.system("pause")
 
 main()
