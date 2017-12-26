@@ -3,7 +3,7 @@ from collections import Counter
 
 
 def report(file_name, type):
-    with open(file_name, encoding=type) as file:
+    with open(file_name, "r", encoding=type) as file:
         results = []
         for line in file:
             for word in line.split(" "):
