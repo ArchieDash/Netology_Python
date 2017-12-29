@@ -40,7 +40,6 @@ def main():
     cook_book = parser()
     person_count = int(input('Введите количество человек: '))
     dishes = input('Введите блюда в расчете на одного человека (через запятую): ').lower().split(', ')
-    print(dishes)
     shop_list = get_shop_list_by_dishes(dishes, person_count, cook_book)
     print_shop_list(shop_list)
 
