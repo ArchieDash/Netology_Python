@@ -12,7 +12,7 @@ def decoder(file_name):
 
 def report_txt(file_name):
     with open(file_name, "r", encoding=decoder(file_name)) as file:
-        results = []
+        results = list()
         for line in file:
             for word in line.split(" "):
                 if len(word) >= 6:
