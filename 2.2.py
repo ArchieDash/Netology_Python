@@ -15,7 +15,7 @@ def report(file_name):
     for word in file.split(" "):
         if len(word) >= 6:
             results.append(word)
-        answer = Counter(results).most_common(10)
+    answer = Counter(results).most_common(10)
     for i in answer:
         print("Слово:", i[0], "\nКоличество упоминаний в тексте: ", i[1])
 
