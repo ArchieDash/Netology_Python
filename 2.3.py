@@ -6,38 +6,36 @@ from collections import Counter
 
 def decoder(file_name):
     with open(file_name, "rb") as f:
-        decode = chardet.detect(f.read())
-        return decode["encoding"]
+        data = f.read()
+        decode = chardet.detect(data)
+        return data.decode(decode["encoding"])
 
 
 def report_txt(file_name):
-    with open(file_name, "r", encoding=decoder(file_name)) as file:
-        results = list()
-        for line in file:
-            for word in line.split(" "):
-                if len(word) >= 6:
-                    results.append(word)
-                answer = Counter(results).most_common(10)
-        for i in answer:
-            print("Слово:", i[0], "\nКоличество упоминаний в тексте: ", i[1])
+    file = decoder(file_name)
+    results = []
+    for word in file.split(" "):
+        if len(word) >= 6:
+            results.append(word)
+    answer = Counter(results).most_common(10)
+    for i in answer:
+        print("Слово:", i[0], "\nКоличество упоминаний в тексте: ", i[1])
 
 
 def report_json(file_name):
-    with open(file_name, "r", encoding=decoder(file_name)) as file:
-        data = json.loads(file.read())
-        results = list()
-        for item in data["rss"]["channel"]["items"]:
-            for word in item["description"].split(" "):
-                if len(word) >= 6:
-                    results.append(word)
-                    answer = Counter(results).most_common(10)
-        for i in answer:
-            print("Слово:", i[0], "\nКоличество упоминаний в тексте: ", i[1])
+    data = json.loads(decoder(file_name))
+    results = list()
+    for item in data["rss"]["channel"]["items"]:
+        for word in item["description"].split(" "):
+            if len(word) >= 6:
+                results.append(word)
+    answer = Counter(results).most_common(10)
+    for i in answer:
+        print("Слово:", i[0], "\nКоличество упоминаний в тексте: ", i[1])
 
 
 def report_xml(file_name):
-    parser = ET.XMLParser(encoding=decoder(file_name))
-    tree = ET.parse(file_name, parser=parser)
+    tree = ET.fromstring(decoder(file_name))
     results = list()
     news = tree.findall("channel/item/description")
     for item in news:
@@ -45,7 +43,7 @@ def report_xml(file_name):
         for word in data.split(" "):
             if len(word) >= 6:
                 results.append(word)
-                answer = Counter(results).most_common(10)
+    answer = Counter(results).most_common(10)
     for i in answer:
         print("Слово:", i[0], "\nКоличество упоминаний в тексте: ", i[1])
 
