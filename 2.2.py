@@ -4,20 +4,20 @@ from collections import Counter
 
 def decoder(file_name):
     with open(file_name, "rb") as f:
-        decode = chardet.detect(f.read())
-        return decode["encoding"]
+        data = f.read()
+        decode = chardet.detect(data)
+        return data.decode(decode["encoding"])
 
 
 def report(file_name):
-    with open(file_name, "r", encoding=decoder(file_name)) as file:
-        results = []
-        for line in file:
-            for word in line.split(" "):
-                if len(word) >= 6:
-                    results.append(word)
-                answer = Counter(results).most_common(10)
-        for i in answer:
-            print("Слово:", i[0], "\nКоличество упоминаний в тексте: ", i[1])
+    file = decoder(file_name)
+    results = []
+    for word in file.split(" "):
+        if len(word) >= 6:
+            results.append(word)
+        answer = Counter(results).most_common(10)
+    for i in answer:
+        print("Слово:", i[0], "\nКоличество упоминаний в тексте: ", i[1])
 
 
 def main():
