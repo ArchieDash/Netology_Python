@@ -17,8 +17,10 @@ def main():
         if file.endswith(".sql"):
             database.add(file)
     while True:
-        search = input("SEARCH:")
+        search = input("SEARCH:\nQ for exit")
         match = set()
+        if search.lower() == "q":
+            break
         for file in database:
             data = decoder(directory, file)
             if (data.find(search)) > 0:
