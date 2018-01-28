@@ -23,15 +23,16 @@ def main():
             break
         for file in database:
             data = decoder(directory, file)
-            if (data.find(search)) > 0:
+            if search in data:
                 match.add(file)
-        if len(match) == 0:
+        if not match:
             print("No match at any file")
             continue
         else:
-            database = database & match
+            database = match
         for file in database:
             print(file)
+        print(f"TOTAL FILES: {len(database)}")
 
 
 main()
