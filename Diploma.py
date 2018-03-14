@@ -36,7 +36,6 @@ def main():
         print('.', end='')
         group_info = dict(zip(["name", "gid", "members_count"],[info[0]["name"], info[0]["gid"], info[0]["members_count"]]))
         group_description.append(group_info)
-    print(group_description)
 
     with open('groups.json', 'w', encoding='utf8') as f:
         json.dump(group_description, f, ensure_ascii=False)
