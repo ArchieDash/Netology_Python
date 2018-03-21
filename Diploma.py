@@ -24,7 +24,7 @@ def main():
         params = {"access_token": token, "user_id": friend, "version": "5.73"}
         try:
             f_groups = requests.get("https://api.vk.com/method/groups.get", params).json()["response"]
-        except:
+        except KeyError:
             pass
         time.sleep(0.35)
         print(f"{progress} / {len(friends)} - {round(progress*100/len(friends), 2)} %")
