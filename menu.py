@@ -27,10 +27,10 @@ while (order.upper() != 'Q'):
         print("Menu item doesn't exist")
     order = input("Anything else? (Q for quit)")
 
-print("You have ordered: ", orders)
+print(f"You have ordered: {orders} ")
 total = 0
 for order in orders:
     total += menu[order]
-print("Your total bill is:", total, " RUR")
+print(f"Your total bill is: {total} RUR")
 
 os.system("pause")
