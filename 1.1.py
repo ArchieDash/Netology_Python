@@ -1,5 +1,3 @@
-import os
-
 euro_exchange = 69.33
 print("Текущий курс RUR/EUR равен:", euro_exchange)
 
@@ -49,4 +47,3 @@ if (total_budget + personal_expenses_rur) <= (trip_budget - total_budget - perso
           "рублей или", trip_budget_eur - total_budget_eur - personal_expenses, "евро")
 else:
     print("Запланированный размер бюджета поездки превышен!")
-os.system("pause")
