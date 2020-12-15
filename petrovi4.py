@@ -1,6 +1,3 @@
-import os
-
-
 def sapling(shift):
     print("Выкапываем яму")
     if shift == "НЕТ":
@@ -22,7 +19,6 @@ def main():
             break
         elif answer == "НЕТ":
             sapling(shift)
-    os.system("pause")
 
 
 if __name__ == "__main__":
